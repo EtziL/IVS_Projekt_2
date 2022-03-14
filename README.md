@@ -8,12 +8,11 @@ Autori
 ------
 
 Nazev tymu
-- xlogin01 jmeno prijmeni 
-- xlogin02 jmeno prijmeni 
-- xlogin03 jmeno prijmeni 
-- xlogin04 jmeno prijmeni 
+- xetzle00 Lukáš  Etzler
+- xkozum08 Marek  Kozumplik
+- xsimun04 Samuel Šimún
+- xtoulm00 Matěj  Toul
 
 Licence
 -------
 
-Tento program je poskytovan...

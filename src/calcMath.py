@@ -27,4 +27,6 @@ def root(n, x):
     #TODO
     return 0
 
-#TODO: Jedna další funkce
+def mod(a, b):
+
+    return a % b

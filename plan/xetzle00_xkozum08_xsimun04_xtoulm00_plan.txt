@@ -1,0 +1,16 @@
+-- Termíny:
+	
+	14.4. check-in pro kontrolu odvedené práce
+	21.4. 2. check-in. (Časová rezerva 8 dní, pokud narazíme na chyby/nedostatky)	
+
+-- přidělení úkolů na projektu jednotlivým řešitelům:
+
+	xetzle00: Dokumentace, testy
+	xkozum08: Profiling, Makefile
+	xsimun04: Matematické operace
+	xtoulm00: Grafické rozhraní a jeho funkce
+
+-- Pro komunikaci budeme využívat pouze Discord.
+
+-- Pro správu verzí jsme zvolili GitHub, repozitář vyučíjící najde na https://github.com/EtziL/IVS_Projekt_2 . Kontrolní účet IVS byl již přizván ke kolaboraci.
+

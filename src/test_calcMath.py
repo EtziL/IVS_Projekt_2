@@ -64,6 +64,8 @@ class TestCalcMath(unittest.TestCase):
         self.assertEqual(calcMath.root(2,64), 8)
         self.assertEqual(calcMath.root(-2,64), "ERR")
         self.assertEqual(calcMath.root(-2,64), "ERR")
+        self.assertEqual(calcMath.root(0,64), "ERR")
+
     
     def test_mod(self):
         self.assertEqual(calcMath.mod(1,1), 0)  

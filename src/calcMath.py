@@ -13,14 +13,21 @@ def div(a, b):
     return a/b
 
 def factorial(x):
-    """Vrací x!."""
-    #TODO
-    return 0
+    pom=0
+    for i in range(1, x):
+        pom = pom * i
+
+    return pom
 
 def power(x, n):
-    """Vrací x^n pro n z přirozených čísel (n > 0 / n >= 0)."""
-    #TODO
-    return 0
+    if (n < 0):
+        return "NOT NUTURAL NUMBER"
+
+    pom=0
+    for i in range(1, n):
+        pom=pom*x
+
+    return x
 
 def root(n, x):
     """Vrací ntou odmocninu z x."""

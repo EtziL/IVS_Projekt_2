@@ -33,18 +33,15 @@ def power(x, n):
     if n < 0:
         return "NOT NUTURAL NUMBER"
 
-    pom = 0
-    for i in range(1, n):
-        pom = pom * x
-
-    return x
+    return x ** n
 
 
 def root(n, x):
     if x < 0:
         return "NUMBER IS NOT POSITIVE NUMBER"
 
-    return x ** (1 / n)
+    res = round(x ** (1 / n), 4)
+    return res
 
 
 def mod(a, b):

@@ -66,8 +66,12 @@ def processOperation():
         if(int(result) == result):
             result = int(result)
 
-    except SyntaxError as e:
+    except SyntaxError:
         result = "INVALID OPERATION SYNTAX"
+    except ValueError:
+        result = "NEGATIVE ROOT"
+    except:
+        result = "UNKNOWN ERROR"
     ui.lineEdit.setText(str(result))
 
 def updateText(input):

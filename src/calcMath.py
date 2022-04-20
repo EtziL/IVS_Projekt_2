@@ -33,11 +33,7 @@ def power(x, n):
     if n < 0:
         return "NOT NUTURAL NUMBER"
 
-    pom = 0
-    for i in range(1, n):
-        pom = pom * x
-
-    return x
+    return x ** n
 
 
 def root(n, x):

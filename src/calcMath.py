@@ -31,13 +31,15 @@ def factorial(x):
 
 def power(x, n):
     if n < 0:
-        return "NOT NUTURAL NUMBER"
+        return "NOT NATURAL NUMBER"
 
     return x ** n
 
 
 def root(n, x):
-    if x < 0:
+    if n <= 0:
+        return "POWER IS NOT POSITIVE NUMBER"
+    elif x < 0:
         return "NUMBER IS NOT POSITIVE NUMBER"
 
     res = round(x ** (1 / n), 4)

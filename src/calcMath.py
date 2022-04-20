@@ -44,7 +44,8 @@ def root(n, x):
     if x < 0:
         return "NUMBER IS NOT POSITIVE NUMBER"
 
-    return x ** (1 / n)
+    res = round(x ** (1 / n), 4)
+    return res
 
 
 def mod(a, b):

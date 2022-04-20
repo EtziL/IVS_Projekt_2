@@ -1,4 +1,4 @@
-import sys, ast
+import sys, ast, re
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QGridLayout, QPushButton, QMainWindow
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSlot
@@ -25,6 +25,17 @@ class OperationsTransformer(ast.NodeTransformer):
         ast.Mod: 'mod('
     }
 
+    unops = {
+        ast.Not: 'factorial('
+    }
+
+    def visit_UnaryOp(self, node):
+        self.generic_visit(node)
+        if isinstance(node.operand, ast.Constant) and isinstance(node.op, ast.Not):
+            value = eval(f'{self.unops[type(node.op)]} {node.operand.value})')
+            return ast.Num(n=value)
+        return node
+
     def visit_BinOp(self, node):
         self.generic_visit(node)
         if isinstance(node.left, ast.Num) and isinstance(node.right, ast.Num):
@@ -37,6 +48,13 @@ def processOperation():
     input = ui.lineEdit.text()
     input = input.replace("^", ">>")
     input = input.replace("√", "<<")
+
+    if "!" in input:
+        factInput = input.split("!")
+        firstHalf = re.split("([^0-9])", factInput[0])
+        newInput = firstHalf[-1]
+        firstHalf.pop()
+        input = ''.join(firstHalf) + "(not " + newInput + ")" + factInput[1]
     try:
         tree = ast.parse("result = " + input)
         ast.fix_missing_locations(OperationsTransformer().visit(tree))
@@ -44,15 +62,21 @@ def processOperation():
         ldict = {}
         exec(compile(tree, filename="", mode="exec"), globals(), ldict)
         result = ldict['result']
-    except SyntaxError:
-        result = "INVALID OPERATION SYNTAX"
 
-    if(int(result) == result):
-        result = int(result)
+        if(int(result) == result):
+            result = int(result)
+
+    except SyntaxError as e:
+        result = "INVALID OPERATION SYNTAX"
     ui.lineEdit.setText(str(result))
 
 def updateText(input):
     """Aktualizuje textové pole na základě vstupu."""
+    if input == "":
+        newText = ui.lineEdit.text()[:-1]
+        ui.lineEdit.setText(newText)
+        return
+
     if input == "," and "," in ui.lineEdit.text():
         return
 
@@ -82,6 +106,9 @@ def connectUI(uiWindow : Ui_MainWindow):
     uiWindow.buttonPower.clicked.connect(lambda: updateText("^"))
     uiWindow.buttonRoot.clicked.connect(lambda: updateText("√"))
     uiWindow.buttonMod.clicked.connect(lambda: updateText("%"))
+    uiWindow.buttonLPar.clicked.connect(lambda: updateText("("))
+    uiWindow.buttonRPar.clicked.connect(lambda: updateText(")"))
+    uiWindow.buttonBackspace.clicked.connect(lambda: updateText(""))
 
 def setShortcuts(uiWindow : Ui_MainWindow):
     """Nastavuje všechny klávesové zkratky pro tlačítka."""
@@ -104,6 +131,9 @@ def setShortcuts(uiWindow : Ui_MainWindow):
     uiWindow.buttonEquals_2.setShortcut("Enter")
     uiWindow.buttonFact.setShortcut("!")
     uiWindow.buttonMod.setShortcut("%")
+    uiWindow.buttonLPar.setShortcut("(")
+    uiWindow.buttonRPar.setShortcut(")")
+    uiWindow.buttonBackspace.setShortcut("Backspace")
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
@@ -113,6 +143,9 @@ if __name__ == '__main__':
 
     connectUI(ui)
     setShortcuts(ui)
+
+    ui.textBrowser.hide()
+    ui.buttonBox.hide()
 
     window.show()
     sys.exit(app.exec_())

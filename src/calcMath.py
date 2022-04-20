@@ -17,8 +17,13 @@ def div(a, b):
 
 
 def factorial(x):
-    pom = 0
-    for i in range(1, x):
+    if x < 0:
+        return "NOT POSITIVE NUMBER"
+    elif x == 0:
+        return 1
+
+    pom = 1
+    for i in range(1, x + 1):
         pom = pom * i
 
     return pom
@@ -39,7 +44,7 @@ def root(n, x):
     if x < 0:
         return "NUMBER IS NOT POSITIVE NUMBER"
 
-    return x ** (1/n)
+    return x ** (1 / n)
 
 
 def mod(a, b):

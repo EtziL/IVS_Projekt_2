@@ -11,7 +11,7 @@ run:
 	python3 calc.py
 
 test:
-	python3 calcMathTests.py #change filename
+	python3 test_calcMath.py
 
 profile:
 	python3 profile.py

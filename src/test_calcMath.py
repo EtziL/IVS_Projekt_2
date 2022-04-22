@@ -45,31 +45,31 @@ class TestCalcMath(unittest.TestCase):
         self.assertEqual(calcMath.factorial(3), 6)
         self.assertEqual(calcMath.factorial(10), 3628800)
         self.assertEqual(calcMath.factorial(25), 15511210043330985984000000)
-        self.assertEqual(calcMath.factorial(-1), "ERR")
-        self.assertEqual(calcMath.factorial(-5), "ERR")
-        self.assertEqual(calcMath.factorial(-6), "ERR")
+        self.assertEqual(calcMath.factorial(-1), "NOT POSITIVE NUMBER")
+        self.assertEqual(calcMath.factorial(-5), "NOT POSITIVE NUMBER")
+        self.assertEqual(calcMath.factorial(-6), "NOT POSITIVE NUMBER")
 
     def test_power(self):
         self.assertEqual(calcMath.power(1,1), 1)
         self.assertEqual(calcMath.power(1,0), 1)
         self.assertEqual(calcMath.power(2,6), 64)
         self.assertEqual(calcMath.power(485,0), 1)
-        self.assertEqual(calcMath.power(2,-1), "ERR")
-        self.assertEqual(calcMath.power(2,-5), "ERR")
+        self.assertEqual(calcMath.power(2,-1), "NOT NUTURAL NUMBER")
+        self.assertEqual(calcMath.power(2,-5), "NOT NUTURAL NUMBER")
 
     def test_root(self):
         self.assertEqual(calcMath.root(1,1), 1)
         self.assertEqual(calcMath.root(3,8), 2)
         self.assertEqual(calcMath.root(3,64), 4)
         self.assertEqual(calcMath.root(2,64), 8)
-        self.assertEqual(calcMath.root(-2,64), "ERR")
-        self.assertEqual(calcMath.root(-2,64), "ERR")
-        self.assertEqual(calcMath.root(0,64), "ERR")
+        self.assertEqual(calcMath.root(-2,64), "NUMBER IS NOT POSITIVE NUMBER")
+        self.assertEqual(calcMath.root(-2,64), "NUMBER IS NOT POSITIVE NUMBER")
+        self.assertEqual(calcMath.root(0,64), "NUMBER IS NOT POSITIVE NUMBER")
 
     
     def test_mod(self):
         self.assertEqual(calcMath.mod(1,1), 0)  
-        self.assertEqual(calcMath.mod(2,1), 1)  
+        self.assertEqual(calcMath.mod(2,1), 0)
         self.assertEqual(calcMath.mod(1,-1), 0)  
         self.assertEqual(calcMath.mod(256,58), 24)  
         self.assertEqual(calcMath.mod(256,-58), -34)  

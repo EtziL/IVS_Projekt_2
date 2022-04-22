@@ -37,7 +37,7 @@ def power(x, n):
 
 
 def root(n, x):
-    if x < 0:
+    if (x < 0) or (n <= 0):
         return "NUMBER IS NOT POSITIVE NUMBER"
 
     res = round(x ** (1 / n), 4)

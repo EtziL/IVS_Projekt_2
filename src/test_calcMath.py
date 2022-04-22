@@ -54,8 +54,8 @@ class TestCalcMath(unittest.TestCase):
         self.assertEqual(calcMath.power(1,0), 1)
         self.assertEqual(calcMath.power(2,6), 64)
         self.assertEqual(calcMath.power(485,0), 1)
-        self.assertEqual(calcMath.power(2,-1), "NOT NUTURAL NUMBER")
-        self.assertEqual(calcMath.power(2,-5), "NOT NUTURAL NUMBER")
+        self.assertEqual(calcMath.power(2,-1), "NOT NATURAL NUMBER")
+        self.assertEqual(calcMath.power(2,-5), "NOT NATURAL NUMBER")
 
     def test_root(self):
         self.assertEqual(calcMath.root(1,1), 1)

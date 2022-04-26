@@ -63,7 +63,7 @@ class TestCalcMath(unittest.TestCase):
         self.assertEqual(calcMath.factorial(-5), "NOT POSITIVE NUMBER")
         self.assertEqual(calcMath.factorial(-6), "NOT POSITIVE NUMBER")
 
-    # Testování odmocniny
+    # Testování mocniny
     def test_power(self):
         self.assertEqual(calcMath.power(1,1), 1)
         self.assertEqual(calcMath.power(1,0), 1)
@@ -72,7 +72,7 @@ class TestCalcMath(unittest.TestCase):
         self.assertEqual(calcMath.power(2,-1), "NOT NATURAL NUMBER")
         self.assertEqual(calcMath.power(2,-5), "NOT NATURAL NUMBER")
 
-    # Testování mocnin
+    # Testování odmocnin
     def test_root(self):
         self.assertEqual(calcMath.root(1,1), 1)
         self.assertEqual(calcMath.root(3,8), 2)

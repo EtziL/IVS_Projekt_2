@@ -1,84 +1,83 @@
-"""**************************************************************************
-* Project Name : Projekt IVS                                                *
-* File : calcMath.py                                                        *
-* Date : 20.04.2022                                                         *
-* Last change : 23.04.2022                                                  *
-* Author : Samuel Šimún (xsimun04)                                          *
-*                                                                           *
-* Description : Math library with basic and advanced math operations        *
-*                                                                           *
-**************************************************************************"""
+"""!
+* Project Name : Projekt IVS                                                
+* File : calcMath.py                                                        
+* Date : 20.04.2022                                                         
+* Last change : 23.04.2022                                                  
+* Author : Samuel Šimún (xsimun04)                                                                                                                     
+* Description : Math library with basic and advanced math operations                                                                                 
+"""
 
-"""**************************************************************************
-* @file calcMath.py                                                         *
-*                                                                           *
-* @brief Math Library                                                       *
-* @author Samuel Šimún (xsimun04)                                           *
-**************************************************************************"""
+"""!
+ @file calcMath.py                                                         
+                                                                           
+ @brief Math Library                                                       
+ @author Samuel Šimún (xsimun04)
+"""
 
-"""******************************************************
-* Function for addition 2 numbers                       *
-*                                                       *
-* @param First Addend                                   *
-* @param Second Addend                                  *
-* @return Sum of Addends                                *
-******************************************************"""
+
 
 
 def add(a, b):
+    """!
+    Function for addition of 2 numbers
+    @param a Addend
+    @param b Addend
+    @return Sum of Addends    
+    """
     return a + b  # Return Result
 
 
-"""******************************************************
-* Function for subtraction 2 numbers                    *
-*                                                       *
-* @param Minuend                                        *
-* @param Subtrahend                                     *
-* @return Difference between minuend and subtrahend     *
-******************************************************"""
 
 
 def sub(a, b):
+    """!
+    Function for subtraction 2 numbers                    
+                                                          
+    @param a Minuend                                        
+    @param b Subtrahend                                     
+    @return Difference between minuend and subtrahend
+    """
     return a - b  # Return Result
 
 
-"""******************************************************   
-* Function for multiplication 2 numbers                 *
-*                                                       *
-* @param First factor                                   *
-* @param Second factor                                  *
-* @return Product of factors                            *
-******************************************************"""
 
 
 def mul(a, b):
+    """!
+    Function for multiplication 2 numbers                 
+                                                          
+    @param a First factor                                   
+    @param b Second factor                                  
+    @return Product of factors
+    """
     return a * b  # Return Result
 
 
-"""******************************************************   
-* Function for division 2 numbers                       *
-*                                                       *
-* @param Dividend                                       *
-* @param Divisor                                        *
-* @return Quotient or Error if Divisor is 0             *
-******************************************************"""
 
 
 def div(a, b):
+    """!  
+    Function for division 2 numbers                       
+                                                          
+    @param a Dividend                                       
+    @param b Divisor                                        
+    @return Quotient or Error if Divisor is 0
+    """
     if b == 0:  # If Divisor is equal to 0 return Error
         return "DIVISION BY ZERO"
     return a / b  # Return Result
 
 
-"""****************************************************************   
-* Function for counting Factorials                                *
-*                                                                 *
-* @param Factorial to count                                       *
-* @return Value of Factorial or Error if input is not positive    *
-****************************************************************"""
+
 
 
 def factorial(x):
+    """! 
+    Function for counting Factorials                                
+                                                                    
+    @param x Factorial to count                                       
+    @return Value of Factorial or Error if input is not positive
+    """
     if x < 0:  # Checking if factorial is less than zero
         return "NOT POSITIVE NUMBER"
     elif x == 0:  # If factorial is 0 then result is 1
@@ -91,33 +90,35 @@ def factorial(x):
     return pom  # Return value of factorial
 
 
-"""******************************************************   
-* Function for power 2 numbers                          *
-*                                                       *
-* @param Base                                           *
-* @param Positive Exponent                              *
-* @return Result                                        *
-******************************************************"""
+
 
 
 def power(x, n):
+    """! 
+    Function for power of 2 numbers                          
+                                                          
+    @param x Base                                           
+    @param n Positive Exponent                              
+    @return Result or Error if exponent is less than 0                                       
+    """
     if n < 0:  # If exponent is less than 0 return Error
         return "NOT NATURAL NUMBER"
 
     return x ** n  # Return Result
 
 
-"""******************************************************   
-* Function of looking for root                          *
-*                                                       *
-* @param Index                                          *
-* @param Radicand                                       *
-* @return Result                                        *
-******************************************************"""
+
 
 
 def root(n, x):
-    if (x < 0) or (n <= 0):  # If Index or Raicand is less than 0 return Error
+    """!   
+    Function of looking for root                          
+                                                          
+    @param n Index                                          
+    @param x Radicand                                       
+    @return Result or Error if Index or Radicand is less than 0
+    """
+    if (x < 0) or (n <= 0):  # If Index or Radicand is less than 0 return Error
         return "NUMBER IS NOT POSITIVE NUMBER"
 
     res = round(x ** (1 / n), 4)  # Returning rounder number of powered number by 1/n
@@ -125,14 +126,14 @@ def root(n, x):
 
 
 def mod(a, b):
-    """******************************************************
-    * @function mod                                         *
-    * Function for modulo                                   *
-    *                                                       *
-    * @param Dividend                                       *
-    * @param Divisor                                        *
-    * @return Result or Error if Divisor is 0               *
-    ******************************************************"""
+    """!                                         
+    Function for modulo                                   
+                                                           
+    @param a Dividend                                       
+    @param b Divisor                                        
+    @return Result or Error if Divisor is 0
+
+    """
     if b == 0:  # If Divisor is equal to 0 return Error
         return "DIVISION BY ZERO"
 

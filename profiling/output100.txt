@@ -1,0 +1,43 @@
+2860.9375
+         173 function calls in 0.000 seconds
+
+   Ordered by: call count
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+      100    0.000    0.000    0.000    0.000 calcMath.py:96(power)
+       10    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+        7    0.000    0.000    0.000    0.000 {method 'startswith' of 'str' objects}
+        7    0.000    0.000    0.000    0.000 typing.py:646(_is_dunder)
+        7    0.000    0.000    0.000    0.000 typing.py:762(__setattr__)
+        4    0.000    0.000    0.000    0.000 {method 'endswith' of 'str' objects}
+        3    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.hash}
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.sum}
+        2    0.000    0.000    0.000    0.000 calcMath.py:58(div)
+        2    0.000    0.000    0.000    0.000 typing.py:255(inner)
+        2    0.000    0.000    0.000    0.000 typing.py:669(<genexpr>)
+        2    0.000    0.000    0.000    0.000 typing.py:685(<genexpr>)
+        2    0.000    0.000    0.000    0.000 typing.py:720(__hash__)
+        1    0.000    0.000    0.000    0.000 {method 'split' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.input}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.round}
+        1    0.000    0.000    0.000    0.000 {built-in method _codecs.utf_8_decode}
+        1    0.000    0.000    0.000    0.000 standardDeviation.py:9(<listcomp>)
+        1    0.000    0.000    0.000    0.000 standardDeviation.py:5(standard_deviation)
+        1    0.000    0.000    0.000    0.000 standardDeviation.py:20(<listcomp>)
+        1    0.000    0.000    0.000    0.000 calcMath.py:32(sub)
+        1    0.000    0.000    0.000    0.000 calcMath.py:45(mul)
+        1    0.000    0.000    0.000    0.000 calcMath.py:113(root)
+        1    0.000    0.000    0.000    0.000 typing.py:120(_type_check)
+        1    0.000    0.000    0.000    0.000 typing.py:172(_collect_type_vars)
+        1    0.000    0.000    0.000    0.000 typing.py:187(_subs_tvars)
+        1    0.000    0.000    0.000    0.000 typing.py:206(_check_generic)
+        1    0.000    0.000    0.000    0.000 typing.py:659(__init__)
+        1    0.000    0.000    0.000    0.000 typing.py:677(__getitem__)
+        1    0.000    0.000    0.000    0.000 typing.py:689(copy_with)
+        1    0.000    0.000    0.000    0.000 codecs.py:319(decode)
+        1    0.000    0.000    0.000    0.000 codecs.py:331(getstate)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+

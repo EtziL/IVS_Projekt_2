@@ -1,4 +1,5 @@
-xlogin01 100 (základ GUI a základní mat. operace)
-xlogin02 100 (pokročilé mat. operace)
-xlogin03 90 (profiling, instalátor)
-xlogin04 110 (testy, dokumentace)
+xetzle00 100 Dokumentace, testy
+xkozum08 100 Profiling, Makefile, Instalace
+xsimun04 100 Matematické operace
+xtoulm00 100 Grafické rozhraní a jeho funkce
+

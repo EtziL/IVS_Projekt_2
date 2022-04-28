@@ -1,1 +1,1 @@
-tento soubor bude obsahovat rozdil mezi planem projektu a skutecnosti
+Od plánu se lišíme časově kvůli nakupeným deadlinům v ostatních předmětech. Upustili jsme také od instalace na Linux.

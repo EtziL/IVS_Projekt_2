@@ -1,12 +1,28 @@
+"""!
+* Project Name : Projekt IVS                                                
+* File : calc.py                                                        
+* Date : 13.04.2022                                                         
+* Last change : 28.04.2022                                                  
+* Author : Matěj Toul (xtoulm00)                                                                                                                     
+* Description : Main script to launch the calculator and connect GUI with math library                                                                                 
+"""
+
+"""!
+ @file calc.py                                                         
+                                                                           
+ @brief App entry point                                                       
+ @author Matěj Toul (xtoulm00)
+"""
+
 import sys, ast, re
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QGridLayout, QPushButton, QMainWindow
-from PyQt5.QtGui import QIcon
-from PyQt5.QtCore import pyqtSlot
+from PyQt5.QtWidgets import QApplication, QMainWindow
 from calcUI import Ui_MainWindow
 from calcMath import *
 
 class CalcWindow(QMainWindow):
-    """Okno kalkulačky, které oproti Qt oknu obsahuje funkci process."""
+    """!
+     @brief Main calculator window that inherits from PyQt QMainWindow class.
+    """
     def __init__(self):
         super().__init__()
     
@@ -14,7 +30,9 @@ class CalcWindow(QMainWindow):
         processOperation()
 
 class OperationsTransformer(ast.NodeTransformer):
-    """Vlastní transformátor, který využívá modulu Python modulu AST, ovšem s námi implementovanými funkcemi."""
+    """!
+     @brief Operation transformer used for parsing math operations into AST (builds upon Python AST module).
+    """
     ops = {
         ast.Add: 'add(',
         ast.Sub: 'sub(',
@@ -30,6 +48,10 @@ class OperationsTransformer(ast.NodeTransformer):
     }
 
     def visit_UnaryOp(self, node):
+        """!
+        @brief Parser for unary operations (factorial). Not to be called manually.
+        @param node Node from AST module.
+        """
         self.generic_visit(node)
         if isinstance(node.operand, ast.Constant) and isinstance(node.op, ast.Not):
             value = eval(f'{self.unops[type(node.op)]} {node.operand.value})')
@@ -37,6 +59,10 @@ class OperationsTransformer(ast.NodeTransformer):
         return node
 
     def visit_BinOp(self, node):
+        """!
+        @brief Parser for binary operations. Not to be called manually.
+        @param node Node from AST module.
+        """
         self.generic_visit(node)
         if isinstance(node.left, ast.Num) and isinstance(node.right, ast.Num):
             value = eval(f'{self.ops[type(node.op)]} {node.left.n}, {node.right.n})')
@@ -44,7 +70,9 @@ class OperationsTransformer(ast.NodeTransformer):
         return node
 
 def processOperation():
-    """Zpracovává matematický výraz v textovém poli."""
+    """!
+    @brief Function that processes the input to AST module friendly format and launches the parser.
+    """
     input = ui.lineEdit.text()
     input = input.replace("^", ">>")
     input = input.replace("√", "<<")
@@ -75,7 +103,10 @@ def processOperation():
     ui.lineEdit.setText(str(result))
 
 def updateText(input):
-    """Aktualizuje textové pole na základě vstupu."""
+    """!
+    @brief Updates the text field based on input (key/button presses).
+    @param input The inputed number or math function identificator.
+    """
     if input == "":
         newText = ui.lineEdit.text()[:-1]
         ui.lineEdit.setText(newText)
@@ -90,7 +121,10 @@ def updateText(input):
         ui.lineEdit.setText(ui.lineEdit.text() + str(input))
 
 def connectUI(uiWindow : Ui_MainWindow):
-    """Propojuje prvky GUI s funkcemi."""
+    """!
+    @brief Connects GUI elements with the text field and ulimately the math library.
+    @param uiWindow The calculator's main window instance.
+    """
     uiWindow.button0.clicked.connect(lambda: updateText(0))
     uiWindow.button1.clicked.connect(lambda: updateText(1))
     uiWindow.button2.clicked.connect(lambda: updateText(2))
@@ -115,7 +149,10 @@ def connectUI(uiWindow : Ui_MainWindow):
     uiWindow.buttonBackspace.clicked.connect(lambda: updateText(""))
 
 def setShortcuts(uiWindow : Ui_MainWindow):
-    """Nastavuje všechny klávesové zkratky pro tlačítka."""
+    """!
+    @brief Sets up all of the keyboard shortcuts.
+    @param uiWindow The calculator's main window instance.
+    """
     uiWindow.button0.setShortcut("0")
     uiWindow.button1.setShortcut("1")
     uiWindow.button2.setShortcut("2")
@@ -140,6 +177,9 @@ def setShortcuts(uiWindow : Ui_MainWindow):
     uiWindow.buttonBackspace.setShortcut("Backspace")
 
 if __name__ == '__main__':
+    """!
+    @brief The application's entry point.
+    """
     app = QApplication(sys.argv)
     window = CalcWindow()
     ui = Ui_MainWindow()
